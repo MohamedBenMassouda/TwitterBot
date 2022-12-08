@@ -10,7 +10,8 @@ def api():
 
 
 # make the bot follows a user
-
+def follow(api: tweepy.API, user):
+    api.destroy_friendship(screen_name=user)
 
 def tweet(api: tweepy.API, message: str, image_path=None):
     if image_path:
@@ -24,4 +25,5 @@ def tweet(api: tweepy.API, message: str, image_path=None):
 if __name__ == '__main__':
     api = api()
     # tweet(api, message="This was tweeted from python", image_path="image.png")
-    api.destroy_friendship(screen_name="elonmusk")
+    follow(api, user="elonmusk")
+
